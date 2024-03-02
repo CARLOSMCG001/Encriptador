@@ -1,0 +1,666 @@
+@import url("https://fontawesome.com/icons/instagram?f=brands&s=solid");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background-color: #f4f4fc;
+}
+
+header{
+    width: 100%;
+    height: 70px;
+    background-color: #495057;
+    display: flex;
+    justify-content: space-between; /* Alinear elementos a los extremos */
+    align-items: center;
+}
+
+header h1{
+    color: #ffffff;
+    display: inline-block;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    flex-grow: 1; /* El título ocupa todo el espacio restante */
+    text-align: center; /* Centrar el texto */
+    
+}
+
+
+
+main{
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 25px - 110px);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    
+}
+
+.seccion1{
+    padding-top: 30%;
+    display: block;
+    position: relative;
+    width: 700px;
+    height: 340px;
+    left: 34px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.50);
+}
+.Contenedor-text{
+    
+    position: absolute;
+    left: -10px;
+    top: 100px;
+    padding-left: 100px;
+    width: 400px;
+    height: 400px;
+}
+
+.caja-text{
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0px 24px 32px -8px rgba(214, 214, 214, 0.5);
+    position: absolute;
+    left: 40px;
+    top: -55px;
+    width: 128%;
+    height: 90%;
+    border: none;
+    background: url(img/26758.jpg);
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    cursor: pointer;
+    color: #0A3871;
+    font-size: 32px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: none;
+}
+
+.caja-text:placeholder{
+    color: #0A3871;
+}
+
+.alerta{
+    position: absolute;
+    top: 455px;
+    left: 205px;
+    display: flex;
+    color: #495057;
+}
+
+.contenedor-botones{
+    position: absolute;
+    left: 20px;
+    top: 470px;
+    height: 200px;
+    padding-left: 15%;
+    padding-top: 15px;
+    display: inline-block;
+}
+
+.btn-encriptar{
+    width: 228px;
+    height: 80px;
+    border-radius: 24px;
+    background-color: #495057;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.btn-encriptar:hover{
+    background: rgb(55, 55, 55);
+    transform: scale(1.2);
+    /*transform: rotate(360deg);*/
+}
+
+.btn-desencriptar{
+    width: 228px;
+    height: 80px;
+    border-radius: 24px;
+    background-color: #D8DFE8;
+    color: #495057;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #495057;
+    cursor: pointer;
+}
+
+.btn-desencriptar:hover{
+    background: rgb(126, 125, 125);
+    transform: scale(1.2);
+    /*transform: rotate(360deg);*/
+}
+
+.seccion2{
+    display: block;
+    position: relative;
+    width: 650px;
+    height: 560px;
+    right: 18px;
+    padding-right: 20px;
+    background: url(img/1969.jpg);
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    box-sizing: border-box;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.50);
+    padding-top: 30%;
+}
+
+.dibujo{
+    position: absolute;
+    left: 170px;
+    top: 0px;
+    box-sizing: border-box;
+
+}
+
+.contenedor-parrafo{
+    position: absolute;
+    box-sizing: border-box;
+    top: 330px;
+    left: 200px;
+}
+
+.contenedor-parrafo h3{
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    color: #343A40;
+}
+
+.contenedor-parrafo p{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #495057;
+    padding-top: 20px;
+}
+
+.contenedor-resultado{
+    position: absolute;
+    bottom: 330px;
+    width: 600px;
+    height: 350px;
+    top: 10%;
+    left: auto;
+    padding: 0;
+    box-sizing: border-box;
+    margin-left: 25px;
+    word-wrap: break-word;
+}
+
+.contenedor-resultado p{
+    
+    position: relative;
+    
+    color: #495057;
+    font-size: 30px;
+    word-wrap: break-word;
+}
+
+.contenedor-copiar{
+    display: flex;
+    position: absolute;
+    bottom: 400px;
+    top: 555px;
+    background-color: rgb(152, 152, 152);
+    padding-left: 40px;
+}
+
+.btn-copiar{
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    background-color: transparent;
+    color: #454545;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #3e3e3e;
+    cursor: pointer;
+    position: relative;
+    top: -83px;
+    right: -120px;
+}
+
+.btn-copiar:hover{
+    background:  linear-gradient(#FEFEFE, #888888);
+    transform: scale(1);
+    /*transform: rotate(360deg);*/
+}
+
+.ocultar{
+    display: none;
+}
+
+footer{
+    position: relative;
+    text-align: center;
+    background: url(img/3858.jpg);
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    padding:130px;
+    width: 100%;
+    bottom: 0;
+    top:700px;
+}
+
+.perfil {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 710px;
+    top: 15px;
+}
+
+.perfil > img {
+    max-width:  5rem;
+    max-height: 5rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 21px 2px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.info-Contact{
+    font-size: 22px;
+    position: absolute;
+    top: 120px;
+    left: 500px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 2px 3px white;
+    text-shadow: 2px 3px 0px rgb(255, 255, 255);
+    background-color: rgb(176, 176, 176);
+}
+
+
+/*===== Icons ===== */
+.lista-links {
+    color: var(--title-color);
+}
+.link-icon {
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--purple);
+    transition: color 0.2s;
+}
+
+.link-icon:hover {
+    color: var(--orange);
+}
+
+.copyright{
+    color:#000000;
+    font-size: 13px;
+    margin:5px;
+}
+
+
+
+
+
+
+/* Tu CSS existente........................................................................................................................................................................................... */
+
+
+
+@media only screen and (max-width: 480px) {
+    /* styles for small screens */
+
+    @import url("https://fontawesome.com/icons/instagram?f=brands&s=solid");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background-color: #f4f4fc;
+}
+
+header{
+    width: 100%;
+    height: 50px;
+    background-color: #495057;
+    display: flex;
+    justify-content: space-between; /* Alinear elementos a los extremos */
+    align-items: center;
+}
+
+header h1{
+    color: #ffffff;
+    display: inline-block;
+    font-family: "Kdam Thmor Pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    flex-grow: 1; /* El título ocupa todo el espacio restante */
+    text-align: center; /* Centrar el texto */
+    font-size: 20px;
+}
+
+
+
+main{
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 25px - 110px);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    
+}
+
+.seccion1{
+    padding-top: 30%;
+    display: block;
+    position: absolute;
+    width: 80%;
+    height: 210px;
+    left: 34px;
+    background-color: #e8e8e8;
+    box-sizing: border-box;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.50);
+}
+.Contenedor-text{
+    
+    position: absolute;
+    left: -10px;
+    top: 100px;
+    padding-left: 100px;
+    width: 200px;
+    height: 200px;
+}
+
+.caja-text{
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0px 24px 32px -8px rgba(214, 214, 214, 0.5);
+    position: absolute;
+    left: 30px;
+    top: -80px;
+    width: 290px;
+    height: 190;
+    border: none;
+    background: url(img/26758.jpg);
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    cursor: pointer;
+    color: #0A3871;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: none;
+}
+
+.caja-text:placeholder{
+    color: #0A3871;
+}
+
+.alerta{
+    position: absolute;
+    top: 230px;
+    left: 20px;
+    display: flex;
+    color: #495057;
+}
+
+.contenedor-botones{
+    position: absolute;
+    left: 20px;
+    top: 250px;
+    height: 80px;
+    width: auto;
+    padding-left: 0;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+.btn-encriptar{
+    width: 130px;
+    height: 60px;
+    border-radius: 24px;
+    background-color: #495057;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.btn-encriptar:hover{
+    background: rgb(55, 55, 55);
+    transform: scale(1.2);
+    /*transform: rotate(360deg);*/
+}
+
+.btn-desencriptar{
+    width: 130px;
+    height: 60px;
+    border-radius: 24px;
+    background-color: #D8DFE8;
+    color: #495057;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #495057;
+    cursor: pointer;
+}
+
+.btn-desencriptar:hover{
+    background: rgb(126, 125, 125);
+    transform: scale(1.2);
+    /*transform: rotate(360deg);*/
+}
+
+.seccion2{
+    display: block;
+    position: relative;
+    width: 337px;
+    height: 450px;
+    right: -40px;
+    top: 340px;
+    padding-right: 0;
+    background: url(img/1969.jpg);
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    box-sizing: border-box;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.50);
+    padding-top: 0%;
+}
+
+.dibujo{
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    box-sizing: border-box;
+    
+
+}
+
+.contenedor-parrafo{
+    position: absolute;
+    box-sizing: border-box;
+    top: 280px;
+    left: 30px;
+}
+
+.contenedor-parrafo h3{
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    color: #343A40;
+}
+
+.contenedor-parrafo p{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #495057;
+    padding-top: 10px;
+}
+
+.contenedor-resultado{
+    
+    position: absolute;
+    bottom: 330px;
+    width: 290px;
+    height: 350px;
+    top: 10%;
+    left: auto;
+    padding: 0;
+    box-sizing: border-box;
+    margin-left: 25px;
+    word-wrap: break-word;
+}
+
+.contenedor-resultado p{
+    position: relative;
+    color: #495057;
+    font-size: 30px;
+    word-wrap: break-word;
+}
+
+.contenedor-copiar{
+    display: flex;
+    position: absolute;
+    bottom: 400px;
+    top: 455px;
+    left: -50px;
+    background-color: rgb(152, 152, 152);
+    padding-left: 40px;
+}
+
+.btn-copiar{
+    width: 128px;
+    height: 37px;
+    border-radius: 24px;
+    background-color: transparent;
+    color: #454545;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #3e3e3e;
+    cursor: pointer;
+    position: relative;
+    top: -60px;
+    right: -120px;
+}
+
+.btn-copiar:hover{
+    background:  linear-gradient(#FEFEFE, #888888);
+    transform: scale(1);
+    /*transform: rotate(360deg);*/
+}
+
+.ocultar{
+    display: none;
+}
+
+footer{
+    position: relative;
+    text-align: center;
+    background: url(img/3858.jpg);
+    background-size: cover; /* Cover the entire element */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    padding:80px;
+    width: auto;
+    bottom: 0;
+    top: 870px;
+    
+}
+
+.perfil {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 10px;
+    top: 15px;
+}
+
+.perfil > img {
+    max-width:  3rem;
+    max-height: 3rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 21px 2px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.info-Contact{
+    width: 190px;
+    height: 100px;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 2px 3px white;
+    text-shadow: 2px 3px 0px rgb(255, 255, 255);
+    background-color: rgb(176, 176, 176);
+}
+
+
+/*===== Icons ===== */
+.lista-links {
+    color: var(--title-color);
+}
+.link-icon {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--purple);
+    transition: color 0.2s;
+}
+
+.link-icon:hover {
+    color: var(--orange);
+}
+
+.copyright{
+    color:#000000;
+    font-size: 13px;
+    margin:5px;
+}
+
+
+
+
+}
+
+
+
+
