@@ -3,122 +3,140 @@ var btnDesencriptar = document.querySelector(".btn-desencriptar");
 var Dibujo = document.querySelector(".dibujo");
 var Contenedor = document.querySelector(".contenedor-parrafo");
 var Resultado = document.querySelector(".text-resultado");
+const modalEncriptado = document.getElementById("mEncriptado");
+const modalDesencriptado = document.getElementById("mDesencriptado");
+const modalError = document.getElementById("mError");
+
+const closeModalEncriptado = document.getElementById("closeModalEncriptado");
+const closeModalDesencriptado = document.getElementById("closeModalDesencriptado");
+const closeModal = document.getElementById("closeModal");
+const closeModalError = document.getElementById("closeModalError");
+
+closeModalEncriptado.addEventListener("click", () => {
+    modalEncriptado.style.display = "none";
+});
+
+closeModalDesencriptado.addEventListener("click", () => {
+    modalDesencriptado.style.display = "none";
+});
+
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+closeModalError.addEventListener("click", () => {
+    modalError.style.display = "none";
+});
 
 btnEncriptar.onclick = encriptar;
 btnDesencriptar.onclick = desencriptar;
 
-
-
-
-// Función para encriptar texto
 function encriptar() {
-    // Ocultar elementos adelante en el flujo
-    ocultarAdelante()
-    
-    // Recuperar texto desde CAJA_TEXTO
-    var cajatexto = recuperarText()
-    
-    // Encriptar texto y mostrar resultado
-    Resultado.textContent = encriptarTexto(cajatexto)
-}
-
-// Función para desencriptar texto
-function desencriptar() {
-    // Ocultar elementos adelante en el flujo
-    ocultarAdelante()
-
-    // Recuperar texto desde CAJA_TEXTO
-    var cajatexto = recuperarText()
-    
-    // Desencriptar texto y mostrar resultado
-    Resultado.textContent = desencriptarTexto(cajatexto)
-}
-
-// Función para recuperar texto
-function recuperarText() {
-    // Seleccionar caja de texto
-    var cajatexto = document.querySelector(".caja-text")
-    
-    // Devolver valor de caja de texto
-    return cajatexto.value
-}
-
-// Función to hide 'Dibujo' and 'Contenedor' elements
-function ocultarAdelante() {
-    // Add 'ocultar' class to 'Dibujo'
-    Dibujo.classList.add("ocultar");    
-    // Add 'ocultar' class to 'Contenedor'
-    Contenedor.classList.add("ocultar"); 
-}
-
-function encriptarTexto(mensaje) {   // Función para encriptar texto
-    var texto = mensaje;            // Texto de entrada
-    var textoFinal = "";            // Texto de salida vacío
-
-    // Iterar sobre cada carácter
-    for(var i = 0; i < texto.length; i++) {
-        if (texto[i] == "a") {        // Si el carácter es "a"
-            textoFinal = textoFinal + "ai";  // Agregar "ai" al texto final
-        }
-        else if (texto[i] == "e") { // Si el carácter es "e"
-            textoFinal = textoFinal + "enter";  // Agregar "enter" al texto final
-        }
-        else if (texto[i] == "i") { // Si el carácter es "i"
-            textoFinal = textoFinal + "imes";  // Agregar "imes" al texto final
-        }
-        else if (texto[i] == "o") { // Si el carácter es "o"
-            textoFinal = textoFinal + "ober";  // Agregar "ober" al texto final
-        }
-        else if (texto[i] == "u") { // Si el carácter es "u"
-            textoFinal = textoFinal + "ufat";  // Agregar "ufat" al texto final
-        }
-        else {                      // De lo contrario
-            textoFinal = textoFinal + texto[i];  // Agregar el carácter al texto final
-        }
+    var cajatexto = recuperarText();
+    if (cajatexto !== "") {
+        ocultarAdelante();
+        Resultado.textContent = encriptarTexto(cajatexto);
+        modalEncriptado.style.display = "block";
+        btnCopiar.style.display = "inline-block";
     }
-    return textoFinal;             // Devolver el texto final
 }
 
-function desencriptarTexto(mensaje) { // Función para desencriptar texto
+function desencriptar() {
+    var cajatexto = recuperarText();
+    if (cajatexto !== "") {
+        ocultarAdelante();
+        Resultado.textContent = desencriptarTexto(cajatexto);
+        modalDesencriptado.style.display = "block";
+        btnCopiar.style.display = "inline-block";
+    }
+}
+
+function recuperarText() {
+    var cajatexto = document.querySelector(".caja-text");
+    var texto = cajatexto.value;
+
+    // Verificar si el texto contiene caracteres no permitidos
+    if(/[A-Z]|[\u00C0-\u00FF]|[^a-z\s]/.test(texto)) {
+        modalError.style.display = "inline-block";
+        return ""; // Devolver una cadena vacía para evitar la ejecución de encriptar/desencriptar
+    }
+
+    return texto;
+}
+
+
+function ocultarAdelante() {
+    Dibujo.classList.add("ocultar");
+    Contenedor.classList.add("ocultar");
+}
+
+function encriptarTexto(mensaje) {
     var texto = mensaje;
     var textoFinal = "";
-
-    for(var i = 0; i < texto.length; i++) { // Iterar sobre cada letra
-        if (texto[i] == "a") { // Si la letra es 'a'
-            textoFinal = textoFinal + "a" // Agregar 'a' a texto final
-            i = i+1; // Saltar una posición
+    for(var i = 0; i < texto.length; i++) {
+        if (texto[i] == "a") {
+            textoFinal = textoFinal + "ai";
         }
-        else if (texto[i] == "e") { // Si la letra es 'e'
-            textoFinal = textoFinal + "e" // Agregar 'e' a texto final
-            i = i+4; // Saltar cuatro posiciones
+        else if (texto[i] == "e") {
+            textoFinal = textoFinal + "enter";
         }
-        else if (texto[i] == "i") { // Si la letra es 'i'
-            textoFinal = textoFinal + "i" // Agregar 'i' a texto final
-            i = i+3; // Saltar tres posiciones
+        else if (texto[i] == "i") {
+            textoFinal = textoFinal + "imes";
         }
-        else if (texto[i] == "o") { // Si la letra es 'o'
-            textoFinal = textoFinal + "o" // Agregar 'o' a texto final
-            i = i+3; // Saltar tres posiciones
+        else if (texto[i] == "o") {
+            textoFinal = textoFinal + "ober";
         }
-        else if (texto[i] == "u") { // Si la letra es 'u'
-            textoFinal = textoFinal + "u" // Agregar 'u' a texto final
-            i = i+3; // Saltar tres posiciones
+        else if (texto[i] == "u") {
+            textoFinal = textoFinal + "ufat";
         }
-        else { // Si la letra no es ninguna de las anteriores
-            textoFinal = textoFinal + texto[i] // Agregar letra al texto final
+        else {
+            textoFinal = textoFinal + texto[i];
         }
     }
+    return textoFinal;
+}
 
-    return textoFinal; // Devolver el texto final
+function desencriptarTexto(mensaje) {
+    var texto = mensaje;
+    var textoFinal = "";
+    for(var i = 0; i < texto.length; i++) {
+        if (texto[i] == "a") {
+            textoFinal = textoFinal + "a"
+            i = i+1;
+        }
+        else if (texto[i] == "e") {
+            textoFinal = textoFinal + "e"
+            i = i+4;
+        }
+        else if (texto[i] == "i") {
+            textoFinal = textoFinal + "i"
+            i = i+3;
+        }
+        else if (texto[i] == "o") {
+            textoFinal = textoFinal + "o"
+            i = i+3;
+        }
+        else if (texto[i] == "u") {
+            textoFinal = textoFinal + "u"
+            i = i+3;
+        }
+        else {
+            textoFinal = textoFinal + texto[i]
+        }
+    }
+    return textoFinal;
 }
 
 const btnCopiar = document.querySelector(".btn-copiar");
+const modal = document.getElementById("myModal");
+const closeModalBtn = document.getElementById("closeModal");
+
 btnCopiar.addEventListener("click", () => {
     const contenido = document.querySelector(".text-resultado").textContent;
     navigator.clipboard.writeText(contenido)
         .then(() => {
             console.log("Texto copiado al portapapeles: ", contenido);
-            alert("Texto copiado al portapapeles!");
+            mostrarModal();
         })
         .catch(err => {
             console.error("Error al copiar texto: ", err);
@@ -126,4 +144,26 @@ btnCopiar.addEventListener("click", () => {
         });
 });
 
+closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
 
+function mostrarModal() {
+    modal.style.display = "block";
+}
+
+function resetear() {
+    var cajaTexto = document.querySelector(".caja-text");
+    var resultado = document.querySelector(".text-resultado");
+    cajaTexto.value = "";
+    resultado.textContent = "";
+    btnCopiar.style.display = "none";
+    mostrarElementos();
+}
+
+function mostrarElementos() {
+    var dibujo = document.querySelector(".dibujo");
+    var contenedor = document.querySelector(".contenedor-parrafo");
+    dibujo.classList.remove("ocultar");
+    contenedor.classList.remove("ocultar");
+}

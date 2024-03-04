@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
+    <video autoplay loop muted>
+        <source src="fondov.mp4" type="video/mp4">
+    </video>
     <header>
-        
+
         <h1>Encriptador Challenge</h1>
     </header>
 
@@ -24,12 +26,18 @@
         <section class="seccion1">
 
             <div class="Contenedor-text">
-                <textarea placeholder="  Ingrese el texto aquí" class="caja-text"></textarea>
+                <textarea placeholder="Ingrese el texto aquí" class="caja-text"></textarea>
+            </div>
+
+            <div class="contenedor-btnReset">
+                    <!-- Botón de Reset -->
+                    <button class="btn-reset" onclick="resetear()"><i class="fa-solid fa-rotate"></i></button>
+
             </div>
 
             <div class="alerta">
-                <img src="img/alerta.svg" alt="alerta">
-                <p>Solo letras minusculas y sin acentos</p>  
+                
+                <p><i class="fa-solid fa-triangle-exclamation"></i> Solo letras minusculas y sin acentos</p>  
             </div>
 
             <div class="contenedor-botones">
@@ -38,20 +46,24 @@
             </div>
         </section>
 
+
+
         <section class="seccion2">
             
             <div class="dibujo">
-                <img src="img/dibujo.svg" alt="dibujo">
+                <img src="img/dibujo.png" alt="dibujo">
             </div>
 
             <div class="contenedor-parrafo">
                 <h3>Ningun mensaje fue <br>encontrado</h3>
-                <p>Ingresa el texto que deseas encriptar o<br> desencriptar</p>
+                <p>Ingresa el texto que deseas encriptar o desencriptar</p>
             </div>
 
             <div class="contenedor-copiar">
                 <input type="button" class="btn-copiar" value="copiar">
             </div>
+            
+
 
             <div class="contenedor-resultado">
                 <p class="text-resultado"></p>
@@ -61,13 +73,65 @@
 
     </main>
 
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+            </svg>
+            <h2 >Texto Copiado</h2>
+            <p>El texto se copio correctamente.</p>
+            <button id="closeModal">OK</button>
+        </div>
+    </div>
+
+
+    <div class="ms-encriptado" id="mEncriptado">
+        <div class="modal-content">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+            </svg>
+            <h2 >Texto Encriptado</h2>
+            <p>El texto se encripto correctamente.</p>
+            <button id="closeModalEncriptado">OK</button>
+        </div>
+    </div>
+    
+    <div class="ms-Desencriptado" id="mDesencriptado">
+        <div class="modal-content">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+            </svg>
+            <h2 >Texto Desencriptado</h2>
+            <p>El texto se desencripto correctamente.</p>
+            <button id="closeModalDesencriptado">OK</button>
+        </div>
+    </div>
+
+    <div class="Error" id="mError">
+        <div class="modal-content">
+            
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+            <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+        </svg>
+            <h2> Error </h2>
+            <p>Solo se permiten letras minúsculas, sin acentos y espacios. No se permiten mayúsculas, letras con acentos o caracteres especiales.</p>
+            <button id="closeModalError">OK</button>
+        </div>
+    </div>
+
+
+    
+
     <footer>
 
-        <div class="perfil">
-                <img src="img/perfil.jpg" alt="imagen de perfil">
-            </div>
 
-            <div class="info-Contact">
+
+            <div class="info-Contact" >
             
                 <p><i class="fa-solid fa-user"></i>Carlos Manuel Carrillo Gonzalez</p>
                 <p><i class="fa-solid fa-address-card"></i>Contacto: carloscarrillogonzalez07@gmail.com</p>
